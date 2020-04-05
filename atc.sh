@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # arguments
-arg=${1}
+arg=${2}
 # settings
 urlcontest='https://atcoder.jp/'
 
 if [ $arg = 'd' ]; then
 # ディレクトリを作成して移動
-    conid=${2}
+    conid=${1}
     mkdir -p $conid
     cd $conid
     # 問題のurl
@@ -31,7 +31,7 @@ elif [ $arg = 'c' ]; then
 # on /abc*** etc
 # copy teplate file to contestid folder as taskid.py
 # open editor
-    faname=${2}
+    faname=${1}
     cp=$(pwd)
     pp=$(dirname $cp)
     langid="${faname##*.}"
@@ -48,7 +48,7 @@ elif [ $arg = 't' ]; then
 # cd taskid folder and call oj t
 # return contestid folder
 # only for python3
-    faname=${2}
+    faname=${1}
     cp=$(pwd)
     taskid="${faname%.*}"
     langid="${faname##*.}"
@@ -66,7 +66,7 @@ elif [ $arg = 't' ]; then
 
 elif [ $arg = 's' ]; then
 # settings
-    faname=${2}
+    faname=${1}
     cp=$(pwd)
     taskid="${faname%.*}"
     langid="${faname##*.}"
