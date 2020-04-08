@@ -1,6 +1,7 @@
 #!user/bin/bash
 # コピー
-cp -i ./atc.sh ~/.local/bin/
+cp -i ~/work/zgit/atctools/atc.sh ~/.local/bin/
+
 mkdir -p ~/work/atc/templates
 cp -i ./templates/*.* ~/work/atc/templates
 

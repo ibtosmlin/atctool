@@ -3,7 +3,7 @@
 # arguments
 arg=${2}
 # settings
-urlcontest='https://atcoder.jp/'
+urlcontest='https://atcoder.jp'
 
 if [ $arg = 'd' ]; then
 # ディレクトリを作成して移動
@@ -11,33 +11,32 @@ if [ $arg = 'd' ]; then
     mkdir -p $conid
     cd $conid
     # 問題のurl
-    url="${urlcontest}contests/${conid}/tasks/"
+    url="${urlcontest}/contests/${conid}/tasks/"
     curl -o ./ul0.txt $url
     cat ./ul0.txt | grep -e 'sec</td>' -e '<td><a href="/contests/'> ./ul1.txt
     cat ./ul1.txt | awk -F "\"" '{print $2}{print $3}' > ./ul2.txt
     cat ./ul2.txt | grep -e 'sec</td>' -e '/contests/'> ./ul3.txt
-    sed  -e 's/^.*_//g' -e 's/<.*$//g' -e 's/^>//g' ./ul3.txt > ./ul4.txt
-    sed  -e 's/ msec//g' -e 's/ sec//g' ./ul4.txt > ./ul5.txt
-    cat ./ul5.txt | while true
+    sed  -e 's/ msec//g' -e 's/ sec//g' -e 's/<.*$//g' -e 's/^>//g' ./ul3.txt > ./ul4.txt
+    cat ./ul4.txt | while true
     do
         read taskid
         read taskidflag
         if [ -z "$taskid" ] ; then break
         fi
         if [ $taskidflag != '0' ] ; then
-            urli="${url}${conid}_${taskid}"
-            resp=`curl -LI $urli -w "%{http_code}\n" -s -o /dev/null`
-            if [ $resp = 200 ]; then
-                mkdir -p $taskid
-                cd $taskid
-                oj d $urli
-                cd ..
-            else
-                break
-            fi
+            urli="${urlcontest}${taskid}"
+            taskid=`echo $urli | sed -e 's/^.*_//g'`
+            echo $taskid $urli >> ./url.txt
         fi
     done
     rm ./ul*.txt
+    while read taskid urli
+    do
+        mkdir -p $taskid
+        cd $taskid
+        oj d $urli
+        cd ..
+    done < ./url.txt
 
 elif [ $arg = 'c' ]; then
 # テンプレートからコードファイルをコピー
@@ -47,7 +46,15 @@ elif [ $arg = 'c' ]; then
     faname=${1}
     cp=$(pwd)
     pp=$(dirname $cp)
+    taskid="${faname%.*}"
     langid="${faname##*.}"
+    while read taskidi urli
+    do
+        if [ $taskid = $taskidi ] ; then
+            break
+        fi
+    done < ./url.txt
+    x-www-browser $urli
     fm="$pp/templates/main.$langid"
     to="$cp/$faname"
     cp $fm $to
@@ -89,11 +96,16 @@ elif [ $arg = 's' ]; then
     to="$cp/$taskid/main.$langid"
     cp $fm $to
     echo "main.$langid created in $to"
-    cd $taskid
 # url settings
-    url="${urlcontest}contests/${conid}/tasks/${conid}_${taskid}"
-    oj s $url "main.$langid"
-    cd ..
+    while read taskidi urli
+    do
+        if [ $taskid = $taskidi ] ; then
+            cd $taskid
+            echo y | oj s $urli "main.$langid"
+            cd ..
+            break
+        fi
+    done < ./url.txt
 
 elif [ $arg = 'l' ]; then
 # ログイン
