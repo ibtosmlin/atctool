@@ -14,6 +14,7 @@ langid="${faname##*.}"
 url="${urlcontest}/contests/${conid}/tasks/${taskid}/"
 
 if [ $arg2 = 'd' ]; then
+    echo "Downloading....."
     mkdir -p $taskid
     cd $taskid
     oj d $url
@@ -26,6 +27,7 @@ if [ $arg2 = 'd' ]; then
     code $to
 
 elif [ $arg2 = 't' ]; then
+    echo "Testing....."
     fm="$cp/$faname"
     to="$cp/$taskid/main.$langid"
     cp $fm $to
@@ -40,8 +42,8 @@ elif [ $arg2 = 't' ]; then
 
 
 elif [ $arg2 = 's' ]; then
-    echo 's'
-# copy
+# submitt
+    echo "Submitting....."
     fm="$cp/$faname"
     to="$cp/$taskid/main.$langid"
     cp $fm $to
