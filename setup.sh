@@ -3,7 +3,7 @@
 cp -i ~/work/zgit/atctools/atc.sh ~/.local/bin/
 
 mkdir -p ~/work/atc/templates
-cp -i ./templates/*.* ~/work/atc/templates
+cp -i ~/work/zgit/atctools/templates/*.* ~/work/atc/templates
 
 cp -i ~/work/zgit/atctools/atp.sh ~/.local/bin/
 
