@@ -11,7 +11,12 @@ faname=$arg1
 conid=`echo $arg1 | sed -e 's/_.*$//g'`
 taskid="${faname%.*}"
 langid="${faname##*.}"
+
 url="${urlcontest}/contests/${conid}/tasks/${taskid}/"
+if [ $# = 3 ]; then
+    url=${3}
+fi
+
 
 if [ $arg2 = 'd' ]; then
     echo "Downloading....."

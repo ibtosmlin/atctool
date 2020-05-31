@@ -12,3 +12,4 @@ touch ~/.bashrc
 echo '# atc alias' >> ~/.bashrc
 echo 'alias atc="source atc.sh"' >> ~/.bashrc
 echo 'alias atp="source atp.sh"' >> ~/.bashrc
+echo 'alias cdatc="cd ~/work/atc/prac"' >> ~/.bashrc
