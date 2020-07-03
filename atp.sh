@@ -24,12 +24,12 @@ if [ $arg2 = 'd' ]; then
     cd $taskid
     oj d $url
     cd ..
-    x-www-browser $url
     fm="$pp/templates/main.$langid"
     to="$cp/$faname"
     cp $fm $to
     echo "$faname created in $to"
     code $to
+    x-www-browser $url
 
 elif [ $arg2 = 't' ]; then
     echo "Testing....."
@@ -40,6 +40,9 @@ elif [ $arg2 = 't' ]; then
     cd $taskid
     if [ $langid = 'py' ]; then
         oj t -c 'python3 main.py' -S
+    elif [ $langid = 'cpp' ]; then
+        g++ main.cpp
+        oj t
     else
         echo '対応していません'
     fi
