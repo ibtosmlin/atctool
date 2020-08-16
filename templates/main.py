@@ -1,22 +1,18 @@
 #!/usr/bin python3
 # -*- coding: utf-8 -*-
 
-def main():
-    N = int(input())
-    R = float(input())
-    A, B = map(int, input().split())
-    X, Y = map(int, input().split())
-    N, M = map(int, input().split())
-    M, N = map(int, input().split())
-    A = list(map(int, input().split()))
-    S = [list(map(int,input().split())) for _ in range(N)]
-    l = [int(input()) for _ in range(N)]
-    S = input()
+n = int(input())
+r = float(input())
+a, b = map(int, input().split())
+x, y = map(int, input().split())
+n, m = map(int, input().split())
+a = list(map(int, input().split()))
+s = [list(map(int,input().split())) for _ in range(n)]
+l = [int(input()) for _ in range(n)]
+s = input()
 
-    print(ret)
-    print(' '.join(ret))
-    print(*ret)
-    print('\n'.join(map(str, ret)))
-
-if __name__ == '__main__':
-    main()
+ret = 0
+print(ret)
+print(' '.join(ret))
+print(*ret)
+print('\n'.join(map(str, ret)))
