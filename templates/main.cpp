@@ -4,21 +4,21 @@ using namespace std;
 using ll = long long;
 
 int main() {
-/*定義*/
+/*def*/
     int p, price, N;
     string text;
-/*入力*/
+/*input*/
     cin >> p >> price;
     vector<int> vec = {2, 5, 2, 1};
     sort(vec.begin(), vec.end()); // {1, 2, 2, 5}
     reverse(vec.begin(), vec.end()); // {5, 2, 2, 1}
     vector<vector<char>> matrix(N, vector<char>(N, '-'));
 
-/*p==1*/
+/*main*/
     if (p == 1) {
     }
     else if (p == 2) {
     }
-/*出力*/
+/*output*/
     cout << price * N << endl;
 }
