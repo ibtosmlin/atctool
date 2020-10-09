@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # arguments
-arg=${2}
+arg=${1}
 # settings
 urlcontest='https://atcoder.jp'
 

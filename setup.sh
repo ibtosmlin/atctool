@@ -6,6 +6,7 @@ cp -i ~/work/zgit/atctools/atc.sh ~/.local/bin/
 cp -i ~/work/zgit/atctools/atp.sh ~/.local/bin/
 cp -i ~/work/zgit/atctools/atps.sh ~/.local/bin/
 cp -i ~/work/zgit/atctools/atpc.sh ~/.local/bin/
+cp -i ~/work/zgit/atctools/bkup.sh ~/.local/bin/
 
 # atc bash for ~/.bashrc
 touch ~/.bashrc
@@ -15,3 +16,4 @@ echo 'alias atp="source atp.sh"' >> ~/.bashrc
 echo 'alias cdatc="cd ~/work/atc/prac"' >> ~/.bashrc
 echo 'alias atps="source atps.sh"' >> ~/.bashrc
 echo 'alias atpc="source atpc.sh"' >> ~/.bashrc
+echo 'alias bkup="source bkup.sh"' >> ~/.bashrc
