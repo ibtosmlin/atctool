@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# working directory
+cdat
+
 # arguments
 arg1=${1}
 arg2=${2}
@@ -19,6 +23,7 @@ fi
 
 
 if [ $arg2 = 'd' ]; then
+    x-www-browser $url
     echo "Downloading....."
     mkdir -p $taskid
     cd $taskid
@@ -29,7 +34,6 @@ if [ $arg2 = 'd' ]; then
     cp $fm $to
     echo "$faname created in $to"
     code $to
-    x-www-browser $url
 
 elif [ $arg2 = 't' ]; then
     echo "Testing....."

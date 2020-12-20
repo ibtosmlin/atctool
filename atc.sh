@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# working directory
+cdat
+
 # arguments
 arg=${1}
 # settings
