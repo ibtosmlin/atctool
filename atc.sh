@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#
+bswd = '~/work/zgit/atctool'
 # working directory
 cdat
 
@@ -58,7 +60,7 @@ elif [ $arg = 'c' ]; then
         fi
     done < ./url.txt
     x-www-browser $urli
-    fm="$pp/templates/main.$langid"
+    fm="$bswd/templates/main.$langid"
     to="$cp/$faname"
     cp $fm $to
     echo "$faname created in $to"

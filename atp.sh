@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # working directory
 cdat
 
@@ -8,6 +9,7 @@ arg1=${1}
 arg2=${2}
 # settings
 urlcontest='https://atcoder.jp'
+bswd='/home/ibtosm/work/zgit/atctool'
 cp=$(pwd)
 pp=$(dirname $cp)
 
@@ -29,7 +31,7 @@ if [ $arg2 = 'd' ]; then
     cd $taskid
     oj d $url
     cd ..
-    fm="$pp/templates/main.$langid"
+    fm="${bswd}/templates/main.${langid}"
     to="$cp/$faname"
     cp $fm $to
     echo "$faname created in $to"
