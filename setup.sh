@@ -1,12 +1,4 @@
 #!user/bin/bash
-# コピー
-mkdir -p ~/work/atc/templates
-cp -i ~/work/zgit/atctools/templates/*.* ~/work/atc/templates
-cp -i ~/work/zgit/atctools/atc.sh ~/.local/bin/
-cp -i ~/work/zgit/atctools/atp.sh ~/.local/bin/
-cp -i ~/work/zgit/atctools/atps.sh ~/.local/bin/
-cp -i ~/work/zgit/atctools/atpc.sh ~/.local/bin/
-cp -i ~/work/zgit/atctools/bkup.sh ~/.local/bin/
 
 # atc bash for ~/.bashrc
 touch ~/.bashrc
@@ -16,7 +8,6 @@ echo '# onlinejudegepath' >> ~/.bashrc
 echo 'export PATH="/home/ibtosm/.local/bin:$PATH"' >> ~/.bashrc
 
 echo '# atc alias' >> ~/.bashrc
-
 
 echo 'alias atc="source ~/work/zgit/atctool/atc.sh"'
 echo 'alias atp="source ~/work/zgit/atctool/atp.sh"'

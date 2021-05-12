@@ -1,6 +1,3 @@
-#!/usr/bin python3
-# -*- coding: utf-8 -*-
-
 n = int(input())
 r = float(input())
 a, b = map(int, input().split())
